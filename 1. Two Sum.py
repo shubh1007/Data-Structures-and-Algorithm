@@ -5,4 +5,10 @@ class Solution:
                 if num1 != num2 and nums[num2] == (target - nums[num1]):
                     return [num1, num2]
         return []
+    
+    def sol2(self, nums, target):
+        myHash = {}
+        for i in nums:
+            if (target - i) in nums:
+                
                     
