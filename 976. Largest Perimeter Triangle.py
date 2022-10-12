@@ -1,13 +1,8 @@
 class Solution:
     def largestPerimeter(self, nums: List[int]) -> int:
-        for i, x in enumerate(nums):
-            nums[i] = -x
-        heapify(nums)
-        c, b, a = -heappop(nums), -heappop(nums), -heappop(nums)
-        while True:
-            if a + b > c:
-                return a + b + c
-            try:
-                c, b, a = b, a, -heappop(nums)
-            except:
-                return 0
+        nums.sort()
+        i = len(nums) - 1
+        while i >= 2:
+            if nums[i] > nums[i - 1] + nums[i - 2]: return nums[i] +  nums[i - 1] + nums[i - 2]
+            i -= 1
+        return 0
