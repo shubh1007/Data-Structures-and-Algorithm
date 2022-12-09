@@ -14,4 +14,8 @@ class Solution(object):
 
 sol = Solution()
 n = 243
+<<<<<<< HEAD
 print(sol.isPowerOfThree(n))
+=======
+print(sol.isPowerOfThree(n))
+>>>>>>> 0054b6a7878fe0f5d064104af0559b659008e036
