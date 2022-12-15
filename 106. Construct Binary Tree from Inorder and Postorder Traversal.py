@@ -6,21 +6,17 @@ class TreeNode:
 
 class Solution:
     def buildTree(self, inorder, postorder):
-        hashMap = {}
-        for idx, val in enumerate(inorder):
-            hashMap[val] = idx
-
+        hashmap = {}
+        for idx, val in enumerate(inorder):hashmap[val] = idx
         def helper(ins, ine, pos, poe):
-            if ins > ine or pos > poe:
-                return None
+            if ins > ine or pos > poe: return None
             root = TreeNode(postorder[poe])
-            elem = hashMap[postorder[poe]]
-            nElem = elem - ins
-            root.left   = helper(   ins         ,   elem - 1,   pos   , pos + nElem - 1)
-            root.right  = helper(   elem + 1    ,   ine     ,   pos + nElem , poe - 1 )
+            idx = hashmap[postorder[poe]]
+            no_elem_to_left = idx - ins
+            root.left =  helper(ins, ins + no_elem_to_left - 1, pos, pos + no_elem_to_left - 1)
+            root.right = helper(ins + no_elem_to_left + 1, ine, pos + no_elem_to_left, poe - 1)
             return root
-        return helper( 0, len(inorder) - 1, 0, len(postorder) - 1)
-
+        return helper(0, len(inorder) - 1, 0, len(postorder) - 1)
 
 def inorderTraversal(root):
     if not root:
