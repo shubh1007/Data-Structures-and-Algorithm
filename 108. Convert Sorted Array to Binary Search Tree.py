@@ -1,9 +1,11 @@
 # Definition for a binary tree node.
-# class TreeNode(object):
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
+class TreeNode(object):
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+
 class Solution(object):
     def sortedArrayToBST(self, nums):
         """
@@ -19,3 +21,24 @@ class Solution(object):
             root.right = helper(mid+1, r)
             return root
         return helper(0, len(nums)-1)
+
+def inOrder(root):
+    if not root:
+        return
+    inOrder(root.left)
+    print(root.val, end = " ")
+    inOrder(root.right)
+
+sol = Solution()
+nums = [1, 2, 3, 4, 5]
+root = sol.sortedArrayToBST(nums)
+inOrder(root)
+
+
+
+
+
+
+
+
+
