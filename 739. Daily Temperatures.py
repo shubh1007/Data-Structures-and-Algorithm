@@ -1,12 +1,12 @@
 class Solution:
     def dailyTemperatures(self, temperatures):
         stack = []
-        res = [0 for i in range(len(temperatures))]
-        for idx, val in enumerate(temperatures):
-            while stack and stack[-1][1] < val:
+        res = [0]*len(temperatures)
+        for idx in range(len(temperatures)):
+            while stack and temperatures[stack[-1]] < temperatures[idx]:
                 temp = stack.pop()
-                res[temp[0]] = idx - temp[0]
-            stack.append([idx, val])
+                res[temp] = idx - temp
+            stack.append(idx)
         return res
 
 sol = Solution()
