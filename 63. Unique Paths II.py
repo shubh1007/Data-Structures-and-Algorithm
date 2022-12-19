@@ -15,3 +15,8 @@ class Solution:
             hashMap[(i, j)] = right + bottom
             return hashMap[(i, j)]
         return traverse(0, 0)
+
+obstacleGrid = [[0, 0, 1], [1, 0, 0], [0, 1, 0]]
+sol = Solution()
+result = sol.uniquePathsWithObastacles(obstacleGrid)
+print(result)
