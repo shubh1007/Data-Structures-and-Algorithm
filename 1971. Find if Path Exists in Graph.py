@@ -11,6 +11,7 @@ class Solution:
         def helper(source, destination):
             if source == destination: return True
             if (source, destination) not in visited:
+                print((source, destination))
                 visited.add((source, destination))
                 for neighbour in graph[source]:
                     hasPath = helper(neighbour, destination)
