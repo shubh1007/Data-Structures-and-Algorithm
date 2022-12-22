@@ -18,7 +18,7 @@ class Solution:
         def dfs2(node = 0, parent = None):
             for child in graph[node]:
                 if child != parent:
-                    ans[child] = ans[node] - count[child] + N - count[child]
+                    ans[child] = ans[node] - count[child] + n - count[child]
                     dfs2(child, node)
 
         dfs()
