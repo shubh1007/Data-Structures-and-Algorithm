@@ -1,11 +1,10 @@
 class Solution:
     def maximumBags(self, capacity, rocks, additionalRocks):
-        remaining = []
-        for i, j in zip(capacity, rocks):
-            remaining.append(i - j)
+        for i in range(len(rocks)):
+            capacity[i] -= rocks[i]
         full = 0
-        remaining.sort()
-        for i in remaining:
+        capacity.sort()
+        for i in capacity:
             if additionalRocks >= i:
                 additionalRocks -= i
                 full += 1
