@@ -1,5 +1,5 @@
 class Solution:
-    def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
+    def isSameTree(self, p, q):
         if not p and not q: return True
         elif not p or not q: return False
         elif p.val == q.val: 
