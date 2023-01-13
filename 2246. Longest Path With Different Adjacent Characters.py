@@ -1,29 +1,41 @@
 from collections import defaultdict
 
-
 class Solution:
     def longestPath(self, parent, s):
-        graph = defaultdict(list)
-        for i, j in enumerate(parent):
-            graph[j].append(i)
+        # Build a graph
+        # define self.result variable that stores the result
+        # Define DFS Function
+            # set longest and second longest variable to 0
+            # loop through all of its children
+                # get path_length via recursion of child node
+                # if s[child] != s[node]:
+                    # if path_length > longest variable
+                        # second_longest = longest
+                        # longest = path_length
+                    # elif path_length > second_longest
+                        # second_longest = path_length 
+            # set self.result = max(self.result, longest + second_longest + 1)
+            # return longest + 1
+        # call dfs function with node 0
+        # return self.result
         self.result = 1
-
+        graph = defaultdict(list)
+        for idx, val in enumerate(parent):
+            graph[val].append(idx)
         def dfs(node):
-            long = seclong = 0
+            longest, second_longest = 0, 0
             for child in graph[node]:
                 path_length = dfs(child)
-                if s[child] != s[node]:
-                    if path_length > long:
-                        seclong = long
-                        long = path_length
-                    elif path_length > seclong:
-                        seclong = path_length
-            self.result = max(self.result, long + seclong + 1)
-            return long + 1
+                if s[node] != s[child]:
+                    if path_length > longest:
+                        second_longest = longest
+                        longest = path_length
+                    elif path_length > second_longest:
+                        second_longest = path_length
+            self.result = max(self.result, longest + second_longest + 1)
+            return longest + 1
         dfs(0)
         return self.result
-
-
 
 sol = Solution()
 parent = [-1, 0, 0, 0]
