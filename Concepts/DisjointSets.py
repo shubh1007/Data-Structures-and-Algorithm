@@ -3,16 +3,13 @@ class DisjointSet:
         self.n = n
         self.parent = list(range(n))
         self.rank = [0] * n
-    def find(self, x: int) -> int:
-        if self.parent[x] != x: 
+    def find(self, x):
+        if self.parent[x] != x:
             self.parent[x] = self.find(self.parent[x])
-        # print(self.parent)
         return x
-    
-    def union(self, x: int, y: int) -> None:
+    def union(self, x, y):
         xRoot = self.find(x)
         yRoot = self.find(y)
-        # print(f"Union of x = {xRoot}\nUnion of y = {yRoot}")
         if xRoot == yRoot:
             return
         elif self.rank[xRoot] < self.rank[yRoot]:
@@ -20,17 +17,12 @@ class DisjointSet:
         elif self.rank[xRoot] > self.rank[yRoot]:
             self.parent[yRoot] = xRoot
         else:
-            self.parent[yRoot] = xRoot
+            self.parent[xRoot] = yRoot
             self.rank[yRoot] += 1
 
 n = 10
 ds = DisjointSet(n)
-# print(ds.find(3))
 ds.union(0, 1)
-print(ds.find(0))
-print(ds.find(1))
-
-
-
-
-        
+ds.find(0)
+ds.find(1)
+print(ds.parent)
