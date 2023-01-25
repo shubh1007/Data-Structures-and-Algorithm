@@ -26,18 +26,26 @@ class Solution:
             return [row, col]
         Q = deque()
         # We do BFS to get to the final destination
+        # In the  deque we store an array [square, moves]
+        # Where square is the present square and moves means no of moves required to reach to the square
         Q.append([1, 0])
+        # Visited set is maintained so that no multiple traversing is done on the same square
         visited = set()
         while Q:
-            
+            # Get the current square and current moves
             currSquare, currMoves = Q.popleft()
             for i in range(1, 7):
+                # get all the moves applied on the current square
                 nextSquare = currSquare + i
+                # convert the square to its position
                 row, col = numToPos(nextSquare)
+                # if the position's value in board is not -1 then the square meets the snake or ladder
                 if board[row][col] != -1:
                     nextSquare = board[row][col]
+                # Square reaches the final destination
                 if nextSquare == n * n:
                     return currMoves + 1
+                # Square is not yet visited so now must be added to Q to explore later.
                 if nextSquare not in visited:
                     visited.add(nextSquare)
                     Q.append([nextSquare, currMoves + 1])
