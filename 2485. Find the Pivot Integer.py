@@ -8,9 +8,5 @@ class Solution:
             return int(SQRT)
         return -1
     
-n = 8
-sol = Solution()
-res = sol.pivotInteger(n)
-print(res)
-    
+
         
