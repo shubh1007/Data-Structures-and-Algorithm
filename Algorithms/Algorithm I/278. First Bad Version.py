@@ -1,3 +1,6 @@
+def isBadVersion(num):
+    pass
+
 class Solution:
     def firstBadVersion(self, n: int) -> int:
         low = 1
@@ -11,7 +14,8 @@ class Solution:
                 high = mid - 1
             else:
                 low = mid + 1
-        return res 
+        return res
+         
 
 
         
