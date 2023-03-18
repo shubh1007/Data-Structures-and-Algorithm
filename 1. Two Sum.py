@@ -10,5 +10,5 @@ class Solution:
         myHash = {}
         for i in nums:
             if (target - i) in nums:
-                
+                Break
                     
