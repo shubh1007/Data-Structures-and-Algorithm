@@ -12,3 +12,5 @@ class Solution:
             if (target - i) in nums:
                 Break
                     
+print("Hello World")
+                    
