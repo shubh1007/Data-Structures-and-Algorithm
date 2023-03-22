@@ -1,3 +1,4 @@
+from typing import List
 from sys import maxsize
 class Solution:
     def minScore(self, n: int, roads: List[List[int]]) -> int:
