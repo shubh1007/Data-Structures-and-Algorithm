@@ -1,3 +1,5 @@
+from typing import List
+from collections import defaultdict
 class Solution:
     def countPairs(self, n: int, edges: List[List[int]]) -> int:
         graph = defaultdict(list)
