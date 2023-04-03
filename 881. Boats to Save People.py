@@ -16,4 +16,7 @@ class Solution:
                 right -= 1
         return res
 
-
+if __name__ == '__main__':
+    people = [1, 2]
+    limit = 3
+    print(Solution().numRescueBoats(people, limit))
