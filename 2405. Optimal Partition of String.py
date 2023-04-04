@@ -14,5 +14,4 @@ s = "shubham"
 res = sol.partitionString(s)
 print(res)
 
-Output:
-# 2
+# Output: 2
