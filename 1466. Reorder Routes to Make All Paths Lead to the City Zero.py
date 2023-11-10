@@ -20,3 +20,4 @@ class Solution:
                 dfs(neighbor)
         visited.add(0)
         dfs(0)
+        return changes

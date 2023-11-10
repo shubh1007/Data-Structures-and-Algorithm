@@ -17,3 +17,5 @@ class Solution:
                 res += D1 * D2
         return res
 
+
+
